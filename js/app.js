@@ -15,3 +15,16 @@ function keyPressed() {
     game.restartGame();
   }
 }
+
+// const person = {
+//   name: "Chris",
+//   age: 13,
+//   sayName() {
+//     console.log(this.name);
+//   },
+//   get sayAge() {
+//     return this.age;
+//   },
+// };
+
+// person.sayAge

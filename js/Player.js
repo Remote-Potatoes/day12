@@ -1,9 +1,7 @@
-class Player {
-  constructor(leftValue, topValue) {
-    this.x = leftValue;
-    this.y = topValue;
-    this.width = 50;
-    this.height = 50;
+class Player extends GameEntity {
+  constructor(xPosition, yPosition) {
+    super(xPosition, yPosition, 50, 50);
+
     this.rightBoundary = CANVAS_WIDTH - this.width;
     this.bottomBoundary = CANVAS_HEIGHT - this.height;
   }

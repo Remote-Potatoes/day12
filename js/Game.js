@@ -1,7 +1,7 @@
 class Game {
   constructor() {
     this.player = new Player(50, 150);
-    this.obstacle = new Obstacle(300, 400);
+    this.obstacle = new Obstacle();
     this.points = 0;
   }
 
@@ -15,6 +15,7 @@ class Game {
 
   setup() {
     createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+    this.obstacle.setRandomPosition();
   }
 
   draw() {
@@ -44,27 +45,20 @@ class Game {
     // RA > LB
     // LA < RB
     // TA < UB
-    const aUnderSide = player.y + player.height;
-    const bTopSide = obstacle.y;
-    if (aUnderSide < bTopSide) {
+
+    if (player.bottomSide < obstacle.topSide) {
       return false;
     }
 
-    const aRightSide = player.x + player.width;
-    const bLeftSide = obstacle.x;
-    if (aRightSide < bLeftSide) {
+    if (player.rightSide < obstacle.leftSide) {
       return false;
     }
 
-    const aLeftSide = player.x;
-    const bRightSide = obstacle.x + obstacle.width;
-    if (aLeftSide > bRightSide) {
+    if (player.leftSide > obstacle.rightSide) {
       return false;
     }
 
-    const aTopSide = player.y;
-    const bUnderSide = obstacle.y + obstacle.height;
-    if (aTopSide > bUnderSide) {
+    if (player.topSide > obstacle.bottomSide) {
       return false;
     }
 
